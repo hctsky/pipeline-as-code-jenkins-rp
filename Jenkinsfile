@@ -24,16 +24,16 @@ pipeline {
 
     stages {
         
-        stage('Cleanup Workspace') {
+        stage('ST1-3366927u') {
             steps {
                 cleanWs()
                 sh """
-                echo "Cleaned Up Workspace for ${APP_NAME}"
+                echo "ST1-3366927u: Setup Environment Completed"
                 """
             }
         }
 
-        stage('Code Checkout') {
+        stage('ST2-3366927u') {
             steps {
                 checkout([
                     $class: 'GitSCM', 
@@ -43,7 +43,7 @@ pipeline {
             }
         }
 
-        stage('Code Build') {
+        stage('ST3-3366927u') {
             steps {
                  sh 'mvn install -Dmaven.test.skip=false'
             }
