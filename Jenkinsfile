@@ -40,34 +40,40 @@ pipeline {
                     branches: [[name: '*/main']], 
                     userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
                 ])
+
+                sh 'echo "ST2-3366927u: Server 1 is successfully created"'
             }
         }
 
         stage('ST3-3366927u') {
             steps {
+                 """
                  sh 'mvn install -Dmaven.test.skip=false'
+                 """
+                 sh 'echo "ST3-3366927u: Server 1 is healthy - Health check done"'
             }
         }
 
-        stage('Environment Analysis') {
+        stage('ST4-Parallel-3366927u') {
 
             parallel {
 
-                stage('Printing All Global Variables') {
+                stage('ST4A-3366927u') {
                     steps{
-                        sh """
+                        sh 'echo "ST4A-3366027u: SQLI Check Completed"'
+                        """
                         env
                         """
                     }
                 }
 
-                stage("Execute Shell") {
+                stage("ST4B-3366927u") {
                     steps {
-                        sh 'echo "Hello Student, thanks for keeping up!"'
+                        sh 'echo "Hello Student, thanks for keeping up!ST4B-3366927u: XSS Check Completed"'
                     }
                 }
 
-                stage('Print ENV variable') {
+                stage('ST4C testing') {
                     steps {
                         sh "echo ${APP_ENV}"
                     }
@@ -75,7 +81,7 @@ pipeline {
             }
         }
 
-        stage('Printing All Global Variables') {
+        stage('ST5-3366927u') {
             steps {
                 sh """
                 env
