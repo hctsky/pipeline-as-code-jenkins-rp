@@ -49,9 +49,11 @@ pipeline {
         stage('ST3-3366927u') {
             steps {
                  
-                 sh """ 'mvn install -Dmaven.test.skip=false'
-                 """
-                 sh """ echo "ST3-3366927u: Server 1 is healthy - Health check done"
+                 sh 'mvn install -Dmaven.test.skip=false'
+                         
+
+                 sh """ 
+                 echo "ST3-3366927u: Server 1 is healthy - Health check done"
                  """
             }
         }
