@@ -61,9 +61,6 @@ pipeline {
                 stage('ST4A-3366927u') {
                     steps{
                         sh 'echo "ST4A-3366027u: SQLI Check Completed"'
-                        """
-                        env
-                        """
                     }
                 }
 
