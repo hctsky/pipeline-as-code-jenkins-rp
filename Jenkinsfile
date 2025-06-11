@@ -41,16 +41,18 @@ pipeline {
                     userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
                 ])
 
-                sh 'echo "ST2-3366927u: Server 1 is successfully created"'
+                sh """ echo "ST2-3366927u: Server 1 is successfully created"
+                """
             }
         }
 
         stage('ST3-3366927u') {
             steps {
+                 
+                 sh """ 'mvn install -Dmaven.test.skip=false'
                  """
-                 sh 'mvn install -Dmaven.test.skip=false'
+                 sh """ echo "ST3-3366927u: Server 1 is healthy - Health check done"
                  """
-                 sh 'echo "ST3-3366927u: Server 1 is healthy - Health check done"'
             }
         }
 
@@ -60,13 +62,15 @@ pipeline {
 
                 stage('ST4A-3366927u') {
                     steps{
-                        sh 'echo "ST4A-3366027u: SQLI Check Completed"'
+                        sh """echo "ST4A-3366027u: SQLI Check Completed"
+                        """
                     }
                 }
 
                 stage("ST4B-3366927u") {
                     steps {
-                        sh 'echo "Hello Student, thanks for keeping up!ST4B-3366927u: XSS Check Completed"'
+                        sh """ echo "Hello Student, thanks for keeping up!ST4B-3366927u: XSS Check Completed"
+                        """
                     }
                 }
 
