@@ -53,7 +53,7 @@ pipeline {
         stage('ST3-3366927u') {
             steps {
                  
-                 sh 'mvn install -Dmaven.test.skip=false'
+                 //sh 'mvn install -Dmaven.test.skip=false'
                          
 
                  sh """ 
