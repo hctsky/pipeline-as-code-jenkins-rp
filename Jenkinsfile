@@ -86,9 +86,16 @@ pipeline {
 
         stage('ST5-3366927u') {
             steps {
-                sh """
-                env
-                """
+                    input("Continue the pipeline?")
+                    sh """ echo "ST5-3366927u: Continue the pipeline"
+                    """
+            }
+        }
+        
+        stage('ST6-3366927u') {
+            steps {
+                    sh """ echo "ST6-3366927u: Ready for next phase"
+                    """
             }
         }
 
