@@ -35,11 +35,15 @@ pipeline {
 
         stage('ST2-3366927u') {
             steps {
-                checkout([
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/main']], 
-                    userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
-                ])
+                agent {
+                        docker { image 'svr-image-3366927u' }
+                      }
+                
+                //checkout([
+                //   $class: 'GitSCM', 
+                //    branches: [[name: '*/main']], 
+                //    userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
+                //])
 
                 sh """ echo "ST2-3366927u: Server 1 is successfully created"
                 """
