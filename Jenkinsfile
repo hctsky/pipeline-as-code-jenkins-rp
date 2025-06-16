@@ -1,9 +1,7 @@
 pipeline {
 
     agent {
-        node {
-            label 'master'
-        }
+        docker { image 'svr-image-3366927u' }
     }
 
     tools { 
@@ -34,11 +32,7 @@ pipeline {
         }
 
         stage('ST2-3366927u') {
-            steps {
-                agent {
-                        docker { image 'svr-image-3366927u' }
-                      }
-                
+            steps {                
                 //checkout([
                 //   $class: 'GitSCM', 
                 //    branches: [[name: '*/main']], 
