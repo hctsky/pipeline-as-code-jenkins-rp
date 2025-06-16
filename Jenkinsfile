@@ -1,6 +1,6 @@
 pipeline {
 
-    agent {
+    agent any {
         docker { image 'svr-image-3366927u' }
     }
 
