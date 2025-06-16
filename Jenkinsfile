@@ -1,7 +1,7 @@
 pipeline {
 
     agent {
-        docker-plugin { image 'svr-image-3366927u' }
+        docker { image 'svr-image-3366927u' }
     }
 
     tools { 
