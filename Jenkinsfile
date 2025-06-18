@@ -26,6 +26,7 @@ pipeline {
             steps {
                 cleanWs()
                 sh """
+                cd .
                 echo "ST1-3366927u: Setup Environment Completed"
                 """
             }
