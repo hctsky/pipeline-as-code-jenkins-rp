@@ -43,7 +43,7 @@ pipeline {
                    sh """
                     docker rm -f svr-3366927u || true
                     def img = docker.image('svr-image-3366927u')
-                    img.withRun('-d -p 32700:80 --name svr-3366927u') {
+                    img.withRun('-d -p 32700:80 --name svr-3366927u')
                     """
                
                 }
