@@ -35,10 +35,7 @@ pipeline {
         stage('ST2-3366927u') {
             steps {    
                 script {
-                    //docker run -d -p 32700:32700 --name registry registry:2
-                    //docker pull 'svr-image-3366927u'
-                    //docker tag 'svr-image-3366927u' localhost:32700/svr-image-3366927u
-                    //docker push localhost:32700/svr-image-3366927u
+                    docker pull 'svr-image-3366927u'
                     //docker.build('svr-image-3366927u')
                     docker.image('my-docker-image').run('-d -p 32700:32700 --name my-container')
                 }
