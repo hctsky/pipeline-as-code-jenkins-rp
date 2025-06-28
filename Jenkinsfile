@@ -41,38 +41,29 @@ pipeline {
         }
 
         stage('ST3-3366927u') {
-            steps {
-                 
-                 //sh 'mvn install -Dmaven.test.skip=false'
-                         
-
-                 sh """ 
+            steps {  
                  echo "ST3-3366927u: Server 1 is healthy - Health check done"
-                 """
             }
         }
 
         stage('ST4-Parallel-3366927u') {
 
             parallel {
-
                 stage('ST4A-3366927u') {
                     steps{
-                        sh """echo "ST4A-3366027u: SQLI Check Completed"
-                        """
+                        echo "ST4A-3366027u: SQLI Check Completed"
                     }
                 }
 
                 stage("ST4B-3366927u") {
                     steps {
-                        sh """ echo "Hello Student, thanks for keeping up!ST4B-3366927u: XSS Check Completed"
-                        """
+                        echo "Hello Student, thanks for keeping up!ST4B-3366927u: XSS Check Completed"
                     }
                 }
 
                 stage('ST4C testing') {
                     steps {
-                        sh "echo ${APP_ENV}"
+                        echo ${APP_ENV}
                     }
                 }
             }
@@ -81,15 +72,14 @@ pipeline {
         stage('ST5-3366927u') {
             steps {
                     input("Continue the pipeline?")
-                    sh """ echo "ST5-3366927u: Continue the pipeline"
-                    """
+                    echo "ST5-3366927u: Continue the pipeline"
+                    
             }
         }
         
         stage('ST6-3366927u') {
             steps {
-                    sh """ echo "ST6-3366927u: Ready for next phase"
-                    """
+                    echo "ST6-3366927u: Ready for next phase"
             }
         }
 
