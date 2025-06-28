@@ -63,7 +63,7 @@ pipeline {
 
                 stage('ST4C testing') {
                     steps {
-                        echo ${APP_ENV}
+                        sh 'echo ${APP_ENV}'
                     }
                 }
             }
