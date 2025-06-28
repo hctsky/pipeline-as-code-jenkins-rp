@@ -26,30 +26,17 @@ pipeline {
         stage('ST1-3366927u') {
             steps {
                 cleanWs()
-                sh """
-                cd /etc/init.d
+              
+                //cd /etc/init.d
                 echo "ST1-3366927u: Setup Environment Completed"
-                """
             }
         }
 
         stage('ST2-3366927u') {
             steps {    
-                script {
-
-                    
-                    //docker.image('my-docker-image').run('-d -p 32700:32700 --name my-container')
-                    // docker pull 'svr-image-3366927u'
-                   sh """
-                    docker rm -f svr-3366927u || true
-                    def img = docker.image('svr-image-3366927u')
-                    img.withRun('-d -p 32700:80 --name svr-3366927u')
-                    """
-               
-                }
-                sh """                
+                sh 'docker rm -f svr-3366927u || true'
+                sh 'docker run -d -p 32700:80 --name svr-3366927u svr-image-3366927u'      
                 echo "ST2-3366927u: Server 1 is successfully created"
-                """
             }
         }
 
