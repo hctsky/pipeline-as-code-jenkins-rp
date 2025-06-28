@@ -35,7 +35,7 @@ pipeline {
         stage('ST2-3366927u') {
             steps {    
                 sh 'docker rm -f svr-3366927u || true'
-                sh 'docker run -d -p 32700:80 --name svr-3366927u svr-image-3366927u'      
+                sh 'docker run -d -p 32700:80 --name svr-3366927u svr-image-3366927u apachectl -D FOREGROUND'      
                 echo "ST2-3366927u: Server 1 is successfully created"
             }
         }
