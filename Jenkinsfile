@@ -1,8 +1,9 @@
 pipeline {
 
-    agent {
-        docker { image 'svr-image-3366927u' }
-    }
+    agent any
+    //agent {
+    //    docker { image 'svr-image-3366927u' }
+    //}
 
     tools { 
         maven 'maven3' 
