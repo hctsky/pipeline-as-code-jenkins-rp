@@ -39,8 +39,8 @@ pipeline {
                     //docker.build('svr-image-3366927u')
                 //   docker.image('my-docker-image').run('-d -p 32700:32700 --name my-container')
                 //}
-                sh "docker pull 'svr-image-3366927u' "
-                sh "docker.image('my-docker-image').run('-d -p 32700:32700 --name my-container') "
+                //sh "docker pull 'svr-image-3366927u' "
+                //sh "docker.image('my-docker-image').run('-d -p 32700:32700 --name my-container') "
 
                 sh """ echo "ST2-3366927u: Server 1 is successfully created"
                 """
