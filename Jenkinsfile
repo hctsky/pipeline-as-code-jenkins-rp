@@ -38,7 +38,7 @@ pipeline {
                     docker pull 'svr-image-3366927u'
                     //docker.image('my-docker-image').run('-d -p 32700:32700 --name my-container')
 
-                    docker run -d -p 32700:80 --name my-container
+                    docker run -d -p 32700:80 --name my-container svr-image-3366927u
                
                 }
                 sh """                
